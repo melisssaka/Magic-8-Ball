@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Magic 8 Ball 🎱</title>
+    <style>
+      body {
+        background: linear-gradient(
+          to top,
+          #c4c5c7 0%,
+          #dcdddf 52%,
+          #ebebeb 100%
+        );
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .content {
+        background: #eaeaea;
+        max-width: 50%;
+        margin: 20px auto;
+        padding: 30px 60px;
+        border: 5px solid #eaeaea;
+        border-radius: 10px;
+      }
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 380px;
+      }
+      h1 {
+        text-align: center;
+      }
+      button {
+        display: block;
+        margin: 15px auto;
+        background: #27292d;
+        color: #eeeeee;
+        font-size: 18px;
+        padding: 20px 30px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        transition: all 200ms ease-in-out;
+      }
+      button:hover {
+        opacity: 0.6;
+        cursor: pointer;
+      }
+      footer {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 13px;
+        color: #27292d;
+      }
+      h6 {
+        font-size: 14px;
+        letter-spacing: 2px;
+      }
+      .githubProfile {
+        text-decoration: none;
+        color: #27292d;
+      }
+      .githubProfile:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <img
+        src="https://parspng.com/wp-content/uploads/2022/02/ballpbg.parspng.com-6.png"
+      />
+      <h1>What's on your mind?</h1>
+      <button>Ask</button>
+    </div>
+    <footer>
+      <h6>
+        Coded by
+        <a
+          href="https://github.com/melisssaka"
+          class="githubProfile"
+          target="_blank"
+          >Melis Saka</a
+        >
+      </h6>
+    </footer>
+
+    <script>
+      function ask() {
+        let userName = prompt("What can I call you?");
+        let userQuestion = prompt("What is your question to the Magic 8 Ball?");
+
+        let randomNumber = Math.floor(Math.random() * 8);
+        console.log(randomNumber);
+
+        let eightBall = "";
+
+        switch (randomNumber) {
+          case 8:
+            eightBall = "It is certain";
+            break;
+          case 7:
+            eightBall = "It is destined";
+            break;
+          case 6:
+            eightBall = "It is decidedly so";
+            break;
+          case 5:
+            eightBall = "Cannot predict now";
+            break;
+          case 4:
+            eightBall = "Do not count on it";
+            break;
+          case 3:
+            eightBall = "My sources say no";
+            break;
+          case 2:
+            eightBall = "Outlook not so good";
+            break;
+          case 1:
+            eightBall = "Signs point to yes";
+            break;
+          default:
+            eightBall = "Reply hazard try again";
+        }
+        let h1 = document.querySelector("h1");
+        h1.innerHTML = `${userName} has asked: "${userQuestion}" and The Magic Eight Ball says, "${eightBall}".`;
+      }
+      let askButton = document.querySelector("button");
+      askButton.addEventListener("click", ask);
+    </script>
+  </body>
+</html>
